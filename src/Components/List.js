@@ -24,7 +24,7 @@ export const List = ( {data, setData, countPage, setPokeName} ) => {
     if(isLoading) return <Loading />
 
     return (
-        <ul className='grid'>
+        <ul className='grid-poke'>
             {data.results.map(elem => <li key={elem.name}><button onClick={() => handlePokeName(elem.name)}>{elem.name}</button></li>)}
         </ul>
       );

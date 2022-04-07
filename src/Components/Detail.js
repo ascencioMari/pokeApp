@@ -46,23 +46,29 @@ export const Detail = ({ pokeName }) => {
 
     const printDetail = detail => {
         
-        const image = detail.sprites.front_default;
+        const image = detail.sprites.other.dream_world.front_default;
         
         return (
-            <ul>
-                <li key={detail.name}>Name: {detail.name}</li>
-                <img src={image} alt='sprite'/>
-                <li key={detail.height}>Height: {detail.height}</li>
-                <li key={detail.weight}>weight: {detail.weight}</li>
-                {printMoves(detail.moves)}
-            </ul>
+            <section className='grid-details'>
+                <figure>
+                    <img src={image} alt='sprite'/>
+                </figure>
+                <ul>
+                    <li key={detail.name}><h2>{detail.name}</h2></li>
+                    <li key={detail.height}>Height: {detail.height}</li>
+                    <li key={detail.weight}>weight: {detail.weight}</li>
+                    {printMoves(detail.moves)}
+                </ul>
+            </section>
         );
     }
 
    if(pokeName) return (
         <dialog open>
             {isLoading ? <Loading /> : printDetail(detail)}
-            <button onClick={() => handleCloseDialog()}>Close</button>
+            <section className="button-dialog">
+                <button onClick={() => handleCloseDialog()}>Close</button>
+            </section> 
         </dialog>
     );
 
